@@ -1,0 +1,17 @@
+name: unit-tests
+
+on:
+  push:
+    branches:
+        - main
+        - devnet
+        
+jobs:
+  run-tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: brew install aptos
+      - name: Run aptos move test
+        run: aptos move test 
+
